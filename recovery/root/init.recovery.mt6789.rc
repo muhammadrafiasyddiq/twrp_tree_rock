@@ -11,19 +11,9 @@ on init
     setprop sys.usb.ffs.aio_compat 1
     setprop crypto.ready 1
     
-    
-    # fixing case miui 14
-on early-fs 
-mount -o bind /first_stage_ramdisk/fstab.mt6789 /vendor/etc/fstab.mt6789 || true
 on fs
     install_keyring
-mount -o bind /first_stage_ramdisk/fstab.mt6789 /vendor/etc/fstab.mt6789 || true
-on post-fs 
-mount -o bind /first_stage_ramdisk/fstab.mt6789 /vendor/etc/fstab.mt6789 || true
-on late-fs 
-mount -o bind /first_stage_ramdisk/fstab.mt6789 /vendor/etc/fstab.mt6789 || true
-on boot
-mount -o bind /first_stage_ramdisk/fstab.mt6789 /vendor/etc/fstab.mt6789 || true
+
 
 on post-fs
    start boot-hal-1-2
